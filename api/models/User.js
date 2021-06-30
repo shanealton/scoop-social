@@ -6,6 +6,15 @@
 
 module.exports = {
 
+  //Custom JSON function
+  customToJSON: function() {
+    return {
+      id: this.id,
+      name: this.fullName,
+      email: this.emailAddress
+    }
+  },
+
   attributes: {
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
