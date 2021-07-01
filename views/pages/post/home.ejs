@@ -7,6 +7,20 @@
 
 <div class="post-all">
   <% allPosts.forEach(p => { %>
-    <div class="post"><%= p.text %></div>
+    <div class="post">
+      <div class="username">
+        <%= p.user.fullName %>
+      </div>
+
+      <div class="timestamp">
+        <%= new Date(p.createdAt).toLocaleTimeString()
+        + " " + new Date(p.createdAt).toLocaleDateString() %>
+      </div>
+
+      <div class="post-body">
+        <%= p.text %>
+      </div>
+
+    </div>
   <% }) %>
 </div>
