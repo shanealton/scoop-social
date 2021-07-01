@@ -44,6 +44,7 @@ module.exports.security = {
   *                                                                           *
   ****************************************************************************/
 
-  csrf: true
+  //TAKE CARE TO FIX BEFORE PRODUCTION
+  csrf: false
 
 };

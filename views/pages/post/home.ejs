@@ -1,0 +1,12 @@
+<div class="post-form">
+  <form action="/post" method="POST">
+    <input type="text" name="postBody" placeholder="Say something...">
+    <button type="submit">Create Post</button>
+  </form>
+</div>
+
+<div class="post-all">
+  <% allPosts.forEach(p => { %>
+    <div class="post"><%= p.text %></div>
+  <% }) %>
+</div>
