@@ -1,5 +1,5 @@
 module.exports = async function(req, res){
-  console.log("Listing all users....")
+  sails.log.info("Listing all users")
 
   //Fetch all users using Waterline ORM
   const users = await User.find({})
