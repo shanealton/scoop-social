@@ -1,0 +1,114 @@
+<style>
+
+  body{
+    margin: 0;
+    padding: 0;
+    font-family: Gill Sans;
+  }
+
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+
+  .inner{
+    display: flex;
+    flex: 0 0 400px;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .inner > img {
+    margin: 0 auto;
+    width: 125px;
+    height: auto;
+  }
+
+  .welcome {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .signup-welcome {
+    font-weight: normal;
+  }
+
+  .welcome,.signup-welcome {
+    text-align: center;
+    padding: 20px 0 20px 0;
+  }
+
+  .background-block{
+    padding: 24px;
+    background: #FFF;
+    border-radius: 6px;
+  }
+
+  .custom-login-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .custom-login-form > input {
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .custom-login-form > button {
+    background: dodgerblue;
+    border-radius: 6px;
+    font-family: Gill Sans;
+    border: none;
+    font-size: 14px;
+    font-weight: normal;
+    color: #fff;
+    padding: 12px;
+    cursor: pointer;
+  }
+
+</style>
+
+<script type="text/javascript">
+
+  async function handleLogin() {
+    console.log("trying to login...")
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+    const formData =  new FormData()
+    formData.append("emailAddress", email)
+    formData.append("password", password)
+
+    try {
+      const response = await axios.put('/api/v1/entrance/login', formData)
+      document.location = "/post"
+    } catch (err) {
+      console.error(err.toString())
+    }
+  }
+
+</script>
+
+<section class="container">
+  <div class="inner">
+    <img src="/images/scoop-logo.svg">
+
+    <div class="welcome">Log Into Your Account</div>
+
+    <div class="background-block">
+      <form class="custom-login-form">
+        <input id="email" name="emailAddress" type="text" placeholder="Email">
+        <input id="password" name="password" type="password" placeholder="Password">
+        <button onclick="handleLogin()" type="button">Login</button>
+      </form>
+    </div>
+    <div class="signup-welcome">
+      Don't have an account?
+      <a href="/signup">Sign up</a>
+    </div>
+  </div>
+</section>
