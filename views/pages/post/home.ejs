@@ -1,7 +1,25 @@
+<script>
+  function onFileChange(event) {
+    console.log(event)
+
+    const file = event.target.files[0]
+    console.log(file)
+
+    const imageSrc =  window.URL.createObjectURL(file)
+
+    document.getElementById('selectedImage').src = imageSrc
+  }
+</script>
+
 <div class="post-form">
-  <form action="/post" method="POST">
+  <form action="/post" method="POST" enctype="multipart/form-data">
     <input type="text" name="postBody" placeholder="Say something...">
     <button type="submit">Create Post</button>
+
+    <div class="file-selector">
+      <input name="imagefile" onchange="onFileChange(event)" type="file"/>
+      <img id="selectedImage" src="" />
+    </div>
   </form>
 </div>
 
@@ -19,6 +37,7 @@
 
       <div class="post-body">
         <%= p.text %>
+        <img class="post-img" src="<%= p.imageUrl %>" /> 
       </div>
 
     </div>
