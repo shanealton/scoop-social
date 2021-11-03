@@ -22,7 +22,7 @@ module.exports.session = {
   * of your users, forcing them to log in again.                             *
   *                                                                          *
   ***************************************************************************/
-  secret: 'a389eee701608da6dfa4b35dd79245b1',
+  secret: 'MONGO_SECRET',
   adapter: 'connect-mongo',
   url: 'mongodb://scoopadmin:H5MpW82GH4VYnws@cluster0-shard-00-00.ovtev.mongodb.net:27017,cluster0-shard-00-01.ovtev.mongodb.net:27017,cluster0-shard-00-02.ovtev.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-vc2vwh-shard-0&authSource=admin&retryWrites=true&w=majority',
   collection: 'sessions'
